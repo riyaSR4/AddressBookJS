@@ -29,29 +29,9 @@ class AddressBook {
     }
 }
 
-const addressbook = new AddressBook();
-const Contact1 = new Contact(
-    FirstName = "Riya",
-    LastName = "Reji",
-    Address = "Annikkanadu",
-    City = "Pathanamthitta",
-    State = "Kerala",
-    Zip = "689642",
-    PhoneNumber = "1234567890",
-    Email = "riya@gmail.com");
-const Contact2 = new Contact(
-    FirstName = "Smokey",
-    LastName = "Toffee",
-    Address = "Bhavan",
-    City = "Pathanamthitta",
-    State = "Kerala",
-    Zip = "123456",
-    PhoneNumber = "1023445678",
-    Email = "smoto@gmail.com");
-
-function validateName(Details) {
-    console.log(Details.FirstName + " " + Details.LastName + " " + Details.Address + " " + Details.City 
-    + " " + Details.State + " " + Details.Zip + " " + Details.PhoneNumber + " " + Details.Email);
+function validate(Details) {
+    console.log(Details.FirstName + " " + Details.LastName + " " + Details.Address + " " + Details.City
+        + " " + Details.State + " " + Details.Zip + " " + Details.PhoneNumber + " " + Details.Email);
     if (!/^[A-Z][a-zA-Z]{2,}$/.test(Details.FirstName)) {
         throw new Error("Invalid First Name");
     }
@@ -81,6 +61,37 @@ function validateName(Details) {
     }
 }
 
-validateName(Contact1);
-validateName(Contact2)
+const addressbook = new AddressBook();
+const Contact1 = new Contact(
+    FirstName = "Riya",
+    LastName = "Reji",
+    Address = "Annikkanadu",
+    City = "Pathanamthitta",
+    State = "Kerala",
+    Zip = "689642",
+    PhoneNumber = "1234567890",
+    Email = "riya@gmail.com");
+const Contact2 = new Contact(
+    FirstName = "Smokey",
+    LastName = "Toffee",
+    Address = "Bhavan",
+    City = "Pathanamthitta",
+    State = "Kerala",
+    Zip = "123456",
+    PhoneNumber = "1023445678",
+    Email = "smoto@gmail.com");
+validate(Contact1);
+validate(Contact2);
+
+const Contact3 = new Contact(
+    FirstName = "Jessy",
+    LastName = "Reji",
+    Address = "Annikkanadu",
+    City = "Pathanamthitta",
+    State = "Kerala",
+    Zip = "123456",
+    PhoneNumber = "1023445678",
+    Email = "jere@gmail.com");
+validate(Contact3);
+
 addressbook.displayContactDetails();
