@@ -18,6 +18,7 @@ class AddressBook {
     }
 
     addNewContact(contact) {
+        validate(contact);
         this.contacts.push(contact);
         console.log("Contact Added " + contact.FirstName);
     }
@@ -25,6 +26,21 @@ class AddressBook {
     displayContactDetails() {
         this.contacts.forEach(element => {
             console.log("Full Name: " + element.FirstName + " " + element.LastName);
+        });
+    }
+    EditContact(contact) {
+        validate(contact);
+        this.contacts.forEach(element => {
+            if (contact.FirstName == element.FirstName) {
+                element.LastName = contact.LastName;
+                element.Address = contact.Address;
+                element.City = contact.City;
+                element.State = contact.State;
+                element.Zip = contact.Zip;
+                element.PhoneNumber = contact.PhoneNumber;
+                element.Email = contact.Email;
+                console.log("Edited Address Book Successfully");
+            }
         });
     }
 }
@@ -57,7 +73,7 @@ function validate(Details) {
         throw new error("Invalid Email")
     }
     else {
-        addressbook.addNewContact(Details);
+        console.log("Validation Successful");;
     }
 }
 
@@ -80,8 +96,8 @@ const Contact2 = new Contact(
     Zip = "123456",
     PhoneNumber = "1023445678",
     Email = "smoto@gmail.com");
-validate(Contact1);
-validate(Contact2);
+addressbook.addNewContact(Contact1);
+addressbook.addNewContact(Contact2);
 
 const Contact3 = new Contact(
     FirstName = "Jessy",
@@ -92,6 +108,17 @@ const Contact3 = new Contact(
     Zip = "123456",
     PhoneNumber = "1023445678",
     Email = "jere@gmail.com");
-validate(Contact3);
+addressbook.addNewContact(Contact3);
+
+const UpdateContact = new Contact(
+    FirstName = "Riya",
+    LastName = "Susan",
+    Address = "Annikkanadu",
+    City = "Pathanamthitta",
+    State = "Kerala",
+    Zip = "987654",
+    PhoneNumber = "1123445678",
+    Email = "rsr@gmail.com");
+addressbook.EditContact(UpdateContact)
 
 addressbook.displayContactDetails();
