@@ -44,12 +44,20 @@ class AddressBook {
         });
     }
     DeleteContact(name) {
+        var a = 0;
         this.contacts.forEach(element => {
             if (name == element.FirstName) {
-                this.contacts.pop(element);
+                this.contacts.splice(a, 1);
                 console.log(name + " deleted Successfully");
             }
+            a++;
         });
+    }
+    CountContact() {
+        const count = this.contacts.reduce((count, sum) => {
+            return count + 1
+        }, 0);
+        console.log("Total number of contacts in the Addressbook: " + count);
     }
 }
 
@@ -131,3 +139,4 @@ addressbook.EditContact(UpdateContact)*/
 
 addressbook.DeleteContact("Jessy");
 addressbook.displayContactDetails();
+addressbook.CountContact();
