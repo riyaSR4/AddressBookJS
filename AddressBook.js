@@ -15,6 +15,8 @@ class Contact {
 class AddressBook {
     constructor() {
         this.contacts = [];
+        this.citySearch = [];
+        this.stateSearch = [];
     }
     addNewContact(contact) {
         validate(contact);
@@ -98,6 +100,42 @@ class AddressBook {
             else
                 return 1;
         });
+        this.displayContactDetails();
+    }
+    SortCity() {
+        this.contacts.sort((a, b) => {
+            let n1 = a.City;
+            let n2 = b.City;
+            if (n1 < n2)
+                return -1;
+            else
+                return 1;
+        });
+        console.log("Sorted by city:");
+        this.displayContactDetails();
+    }
+    SortState() {
+        this.contacts.sort((a, b) => {
+            let n1 = a.State;
+            let n2 = b.State;
+            if (n1 < n2)
+                return -1;
+            else
+                return 1;
+        });
+        console.log("Sorted by state:");
+        this.displayContactDetails();
+    }
+    SortZip() {
+        this.contacts.sort((a, b) => {
+            let n1 = a.Zip;
+            let n2 = b.Zip;
+            if (n1 < n2)
+                return -1;
+            else
+                return 1;
+        });
+        console.log("Sorted by zip:");
         this.displayContactDetails();
     }
 }
@@ -184,4 +222,7 @@ const UpdateContact = new Contact(
 //addressbook.State("Kerala", "Jessy");
 //addressbook.CountCity("Pathanamthitta");
 //addressbook.CountState("Kerala");
-addressbook.SortName();
+//addressbook.SortName();
+addressbook.SortCity();
+addressbook.SortState();
+addressbook.SortZip();
