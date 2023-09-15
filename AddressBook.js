@@ -81,15 +81,24 @@ class AddressBook {
             console.log("Full Name: " + element.FirstName + " " + element.LastName);
         })
     }
-    CountCity(city)
-    {
-        this.citySearch = this.contacts.filter((element)=>element.City == city);
-        console.log("The total number of contacts in the city " + city + " are: "+this.citySearch.length);
+    CountCity(city) {
+        this.citySearch = this.contacts.filter((element) => element.City == city);
+        console.log("The total number of contacts in the city " + city + " are: " + this.citySearch.length);
     }
-    CountState(state)
-    {
-        this.stateSearch = this.contacts.filter((element)=>element.State == state);
-        console.log("The total number of contacts in the state " + " are: "+this.stateSearch.length);
+    CountState(state) {
+        this.stateSearch = this.contacts.filter((element) => element.State == state);
+        console.log("The total number of contacts in the state " + " are: " + this.stateSearch.length);
+    }
+    SortName() {
+        this.contacts.sort((a, b) => {
+            let n1 = a.FirstName;
+            let n2 = b.FirstName;
+            if (n1 < n2)
+                return -1;
+            else
+                return 1;
+        });
+        this.displayContactDetails();
     }
 }
 
@@ -173,5 +182,6 @@ const UpdateContact = new Contact(
 //addressbook.duplicateContact(Contact3);
 //addressbook.City("Pathanamthitta", "Smokey");
 //addressbook.State("Kerala", "Jessy");
-addressbook.CountCity("Pathanamthitta");
-addressbook.CountState("Kerala");
+//addressbook.CountCity("Pathanamthitta");
+//addressbook.CountState("Kerala");
+addressbook.SortName();
