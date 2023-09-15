@@ -65,6 +65,20 @@ class AddressBook {
         }, 0);
         console.log("Total number of contacts in the Addressbook: " + count);
     }
+    City(city) {
+        const citySearch = this.contacts.filter((element) => element.City == city);
+        console.log("The persons in the city " + city + " are: ");
+        citySearch.forEach(element => {
+            console.log("Full Name: " + element.FirstName + " " + element.LastName);
+        })
+    }
+    State(state) {
+        const stateSearch = this.contacts.filter((element) => element.State == state);
+        console.log("The persons in the state " + state + " are: ");
+        stateSearch.forEach(element => {
+            console.log("Full Name: " + element.FirstName + " " + element.LastName);
+        })
+    }
 }
 
 function validate(Details) {
@@ -140,9 +154,10 @@ const UpdateContact = new Contact(
     Zip = "987654",
     PhoneNumber = "1123445678",
     Email = "rsr@gmail.com");
-addressbook.EditContact(UpdateContact);
-
+//addressbook.EditContact(UpdateContact);
 //addressbook.DeleteContact("Jessy");
-addressbook.displayContactDetails();
-addressbook.CountContact();
-addressbook.duplicateContact(Contact3);
+//addressbook.displayContactDetails();
+//addressbook.CountContact();
+//addressbook.duplicateContact(Contact3);
+addressbook.City("Pathanamthitta");
+addressbook.State("Kerala");
