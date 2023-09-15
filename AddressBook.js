@@ -20,7 +20,7 @@ class AddressBook {
     addNewContact(contact) {
         validate(contact);
         this.contacts.push(contact);
-        console.log("Contact Added " + contact.FirstName);
+        console.log(contact.FirstName + " contact Added ");
     }
 
     displayContactDetails() {
@@ -40,6 +40,14 @@ class AddressBook {
                 element.PhoneNumber = contact.PhoneNumber;
                 element.Email = contact.Email;
                 console.log("Edited Address Book Successfully");
+            }
+        });
+    }
+    DeleteContact(name) {
+        this.contacts.forEach(element => {
+            if (name == element.FirstName) {
+                this.contacts.pop(element);
+                console.log(name + " deleted Successfully");
             }
         });
     }
@@ -110,7 +118,7 @@ const Contact3 = new Contact(
     Email = "jere@gmail.com");
 addressbook.addNewContact(Contact3);
 
-const UpdateContact = new Contact(
+/*const UpdateContact = new Contact(
     FirstName = "Riya",
     LastName = "Susan",
     Address = "Annikkanadu",
@@ -119,6 +127,7 @@ const UpdateContact = new Contact(
     Zip = "987654",
     PhoneNumber = "1123445678",
     Email = "rsr@gmail.com");
-addressbook.EditContact(UpdateContact)
+addressbook.EditContact(UpdateContact)*/
 
+addressbook.DeleteContact("Jessy");
 addressbook.displayContactDetails();
