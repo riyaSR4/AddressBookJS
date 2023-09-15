@@ -66,20 +66,30 @@ class AddressBook {
         console.log("Total number of contacts in the Addressbook: " + count);
     }
     City(city, name) {
-        const citySearch = this.contacts.filter((element) => element.City == city);
-        const personCity = citySearch.filter((element) => element.FirstName == name);
-        console.log("The particular person in the city " + city + " is: ");
+        this.citySearch = this.contacts.filter((element) => element.City == city);
+        const personCity = this.citySearch.filter((element) => element.FirstName == name);
+        console.log("The persons in the city " + city + " are: ");
         personCity.forEach(element => {
             console.log("Full Name: " + element.FirstName + " " + element.LastName);
         })
     }
     State(state, name) {
-        const stateSearch = this.contacts.filter((element) => element.State == state);
-        const personState = stateSearch.filter((element) => element.FirstName == name);
-        console.log("The particular person in the state " + state + " is: ");
+        this.stateSearch = this.contacts.filter((element) => element.State == state);
+        const personState = this.stateSearch.filter((element) => element.FirstName == name);
+        console.log("The persons in the state " + state + " are: ");
         personState.forEach(element => {
             console.log("Full Name: " + element.FirstName + " " + element.LastName);
         })
+    }
+    CountCity(city)
+    {
+        this.citySearch = this.contacts.filter((element)=>element.City == city);
+        console.log("The total number of contacts in the city " + city + " are: "+this.citySearch.length);
+    }
+    CountState(state)
+    {
+        this.stateSearch = this.contacts.filter((element)=>element.State == state);
+        console.log("The total number of contacts in the state " + " are: "+this.stateSearch.length);
     }
 }
 
@@ -161,5 +171,7 @@ const UpdateContact = new Contact(
 //addressbook.displayContactDetails();
 //addressbook.CountContact();
 //addressbook.duplicateContact(Contact3);
-addressbook.City("Pathanamthitta", "Smokey");
-addressbook.State("Kerala", "Jessy");
+//addressbook.City("Pathanamthitta", "Smokey");
+//addressbook.State("Kerala", "Jessy");
+addressbook.CountCity("Pathanamthitta");
+addressbook.CountState("Kerala");
