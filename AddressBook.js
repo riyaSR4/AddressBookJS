@@ -65,17 +65,19 @@ class AddressBook {
         }, 0);
         console.log("Total number of contacts in the Addressbook: " + count);
     }
-    City(city) {
+    City(city, name) {
         const citySearch = this.contacts.filter((element) => element.City == city);
-        console.log("The persons in the city " + city + " are: ");
-        citySearch.forEach(element => {
+        const personCity = citySearch.filter((element) => element.FirstName == name);
+        console.log("The particular person in the city " + city + " is: ");
+        personCity.forEach(element => {
             console.log("Full Name: " + element.FirstName + " " + element.LastName);
         })
     }
-    State(state) {
+    State(state, name) {
         const stateSearch = this.contacts.filter((element) => element.State == state);
-        console.log("The persons in the state " + state + " are: ");
-        stateSearch.forEach(element => {
+        const personState = stateSearch.filter((element) => element.FirstName == name);
+        console.log("The particular person in the state " + state + " is: ");
+        personState.forEach(element => {
             console.log("Full Name: " + element.FirstName + " " + element.LastName);
         })
     }
@@ -159,5 +161,5 @@ const UpdateContact = new Contact(
 //addressbook.displayContactDetails();
 //addressbook.CountContact();
 //addressbook.duplicateContact(Contact3);
-addressbook.City("Pathanamthitta");
-addressbook.State("Kerala");
+addressbook.City("Pathanamthitta", "Smokey");
+addressbook.State("Kerala", "Jessy");
